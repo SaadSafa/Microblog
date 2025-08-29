@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <!-- User Info Card -->
+            <div class="card mb-4 shadow-sm">
+                <div class="row g-0">
+                    <div class="col-md-4 text-center p-3">
+                        <img src="{{ main.user.avatar(256) }}" class="img-fluid rounded-circle" alt="User Avatar">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ user.username }}</h2>
+                            {% if user.about_me %}
+                                <p class="card-text">{{ user.about_me }}</p>
+                            {% endif %}
+                            {% if user.last_seen %}
+                                <p class="text-muted">Last seen: {{ moment(user.last_seen).format('LLL') }}</p>
+                            {% endif %}
+                            <p class="text-muted">{{ user.followers_count() }} followers, {{ user.following_count() }} following.</p>
+
+                            {% if user == current_user %}
+                                <a href="{{ url_for('main.edit_profile') }}" class="btn btn-primary">Edit your profile</a>
+                            {% elif not current_user.is_following(user) %}
+                                <form action="{{ url_for('main.follow', username=user.username) }}" method="post" class="d-inline">
+                                    {{ form.hidden_tag() }}
+                                    {{ form.submit(value='Follow', class_='btn btn-primary') }}
+                                </form>
+                            {% else %}
+                                <form action="{{ url_for('main.unfollow', username=user.username) }}" method="post" class="d-inline">
+                                    {{ form.hidden_tag() }}
+                                    {{ form.submit(value='Unfollow', class_='btn btn-secondary') }}
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Posts -->
+            {% for post in posts %}
+                <div class="card mb-3 shadow-sm">
+                    <div class="card-body">
+                        {% include '_post.html' %}
+                    </div>
+                </div>
+            {% else %}
+                <p class="text-muted text-center">No posts yet.</p>
+            {% endfor %}
+
+            <!-- Pagination -->
+            <nav aria-label="Post navigation">
+                <ul class="pagination justify-content-between">
+                    <li class="page-item{% if not prev_url %} disabled{% endif %}">
+                        <a class="page-link" href="{{ prev_url or '#' }}">
+                            <span aria-hidden="true">&larr;</span> Newer posts
+                        </a>
+                    </li>
+                    <li class="page-item{% if not next_url %} disabled{% endif %}">
+                        <a class="page-link" href="{{ next_url or '#' }}">
+                            Older posts <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

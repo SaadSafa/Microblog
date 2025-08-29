@@ -1,0 +1,29 @@
+<div class="card mb-4 shadow-sm">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <div>
+            <strong>{{ post.author.username }}</strong>
+            <small class="text-muted">
+                • {{ moment(post.timestamp).fromNow() }}
+            </small>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <p class="card-text" id="post{{ post.id }}">{{ post.body }}</p>
+        {% if post.language and post.language != g.locale %}
+        <br>
+        <span id="translation{{ post.id }}">
+            <a href="javascript:translate(
+            'post{{ post.id }}',
+            'translation{{ post.id }}',
+            '{{ post.language }}',
+            '{{ g.locale }}'
+            );">{{ _('Translate') }}</a>
+        </span>
+        {% endif %}
+    </div>
+
+    <div class="card-footer text-muted">
+        Posted by <a href="{{ url_for('main.user', username=post.author.username) }}">{{ post.author.username }}</a>
+    </div>
+</div>

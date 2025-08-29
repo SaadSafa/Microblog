@@ -1,0 +1,194 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-08-23 11:30+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ar\n"
+"Language-Team: ar <LL@li.org>\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#: app/__init__.py:17
+msgid "Please log in to access this page."
+msgstr "الرجاء تسجيل الدخول للوصول إلى هذه الصفحة."
+
+#: app/email.py:21
+msgid "[Microblog] Reset Your Password"
+msgstr "[المدونة] إعادة تعيين كلمة المرور الخاصة بك"
+
+#: app/forms.py:15
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: app/forms.py:16
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: app/forms.py:17
+msgid "Remember Me"
+msgstr "تذكرني"
+
+#: app/forms.py:18
+msgid "Sign In"
+msgstr "تسجيل الدخول"
+
+#: app/forms.py:23
+msgid "Reset Password"
+msgstr "إعادة تعيين كلمة المرور"
+
+#: app/forms.py:27
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: app/forms.py:30
+msgid "Request Password Reset"
+msgstr "طلب إعادة تعيين كلمة المرور"
+
+#: app/forms.py:36
+msgid "Repeat Password"
+msgstr "أعد إدخال كلمة المرور"
+
+#: app/forms.py:37
+msgid "Register"
+msgstr "تسجيل"
+
+#: app/forms.py:42
+msgid "Say something"
+msgstr "قل شيئًا"
+
+#: app/forms.py:44
+msgid "Submit"
+msgstr "إرسال"
+
+#: app/forms.py:49
+msgid "About me"
+msgstr "نبذة عني"
+
+#: app/forms.py:51
+msgid "Update"
+msgstr "تحديث"
+
+#: app/routes.py:44
+msgid "Invalid username or password"
+msgstr "اسم المستخدم أو كلمة المرور غير صحيحة"
+
+#: app/routes.py:72
+msgid "Congratulations, you are now a registered user!"
+msgstr "تهانينا، لقد أصبحت مستخدمًا مسجلاً!"
+
+#: app/routes.py:98
+msgid "Your changes have been saved."
+msgstr "تم حفظ التغييرات الخاصة بك."
+
+#: app/routes.py:110
+msgid "Your post is now live!"
+msgstr "تم نشر منشورك الآن!"
+
+#: app/routes.py:139
+msgid "Check your email for the instructions to reset your password"
+msgstr "تحقق من بريدك الإلكتروني للحصول على تعليمات إعادة تعيين كلمة المرور"
+
+#: app/routes.py:157
+msgid "Your password has been reset."
+msgstr "تمت إعادة تعيين كلمة المرور الخاصة بك."
+
+#: app/routes.py:183
+#, python-format
+msgid "User %(username)s not found."
+msgstr "المستخدم %(username)s غير موجود."
+
+#: app/routes.py:186
+msgid "You cannot follow yourself!"
+msgstr "لا يمكنك متابعة نفسك!"
+
+#: app/routes.py:190
+#, python-format
+msgid "You are following %(username)s!"
+msgstr "أنت تتابع %(username)s!"
+
+#: app/routes.py:210
+#, python-format
+msgid "You are not following %(username)s."
+msgstr "أنت لا تتابع %(username)s."
+
+#: app/templates/404.html:4
+msgid "File Not Found"
+msgstr "الملف غير موجود"
+
+#: app/templates/500.html:4
+msgid "An unexpected error has occurred"
+msgstr "حدث خطأ غير متوقع"
+
+#: app/templates/500.html:5
+msgid "The administrator has been notified. Sorry for the inconvenience!"
+msgstr "تم إبلاغ المسؤول. نأسف للإزعاج!"
+
+#: app/templates/base.html:21
+msgid "Home"
+msgstr "الرئيسية"
+
+#: app/templates/base.html:22
+msgid "Explore"
+msgstr "استكشاف"
+
+#: app/templates/base.html:23
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: app/templates/base.html:27
+msgid "Profile"
+msgstr "الملف الشخصي"
+
+#: app/templates/base.html:28
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: app/templates/index.html:5
+#, python-format
+msgid "Hello, %(username)s!"
+msgstr "مرحبًا، %(username)s!"
+
+#: app/templates/index.html:16
+msgid "Newer posts"
+msgstr "المنشورات الأحدث"
+
+#: app/templates/index.html:19
+msgid "Older posts"
+msgstr "المنشورات الأقدم"
+
+#: app/templates/user.html:9
+msgid "User"
+msgstr "المستخدم"
+
+#: app/templates/user.html:14
+msgid "Last seen on"
+msgstr "آخر ظهور في"
+
+#: app/templates/user.html:21
+msgid "Edit your profile"
+msgstr "تعديل ملفك الشخصي"
+
+#: app/templates/user.html:23
+msgid "Follow"
+msgstr "متابعة"
+
+#: app/templates/user.html:25
+msgid "Unfollow"
+msgstr "إلغاء المتابعة"
+
+#: app/templates/auth/login.html:12
+msgid "Forgot Your Password?"
+msgstr "هل نسيت كلمة المرور؟"
+
+#: app/templates/auth/reset_password.html:8
+msgid "Reset Your Password"
+msgstr "إعادة تعيين كلمة المرور الخاصة بك"
+
+#: app/templates/auth/reset_password_request.html:8
+msgid "Reset Password Request"
+msgstr "طلب إعادة تعيين كلمة المرور"

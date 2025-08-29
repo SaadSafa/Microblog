@@ -1,0 +1,18 @@
+# Virtual environments
+venv/
+env/
+
+# Environment variable files
+.env
+.flaskenv
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Instance folder
+instance/
+
+# Optional: IDE/editor files
+.vscode/
+.idea/
