@@ -36,8 +36,9 @@ def create_app(config_class=Config):
     mail.init_app(app)
     moment.init_app(app)
     babel.init_app(app, locale_selector=get_locale)
-    app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']], basic_auth=("elastic",app.config['ELASTIC_PASSWORD']), verify_certs=False) \
+    app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']], verify_certs=False) \
         if app.config['ELASTICSEARCH_URL'] else None
+    #basic_auth=("elastic",app.config['ELASTIC_PASSWORD']),
     from app.errors import bp as errors_bp
     app.register_blueprint(errors_bp)
 
