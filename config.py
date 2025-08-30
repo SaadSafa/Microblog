@@ -27,5 +27,6 @@ class Config:
 
     ELASTICSEARCH_URL = os.environ.get('BONSAI_URL') or os.environ.get('ELASTICSEARCH_URL')
     ELASTIC_PASSWORD = os.environ.get('ELASTIC_PASSWORD')
+    ELASTIC_USER = os.environ.get('ELASTIC_USER')
 
     LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
