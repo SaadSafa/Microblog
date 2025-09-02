@@ -79,17 +79,23 @@
     {
         document.getElementById(destElem).innerHTML =
             "<img src='{{ url_for('static', filename='loading.gif') }}'>";
-        const response = await fetch('/main.translate', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json; charset=utf-8'},
-            body: JSON.stringify({
-                text: document.getElementById(sourceElem).value || document.getElementById(sourceElem).innerText,
-                source_language: sourceLang,
-                dest_language: destLang
-            })
-        })
-        const data = await response.json();
-        document.getElementById(destElem).innerText = data.text;
+        try {
+            const text = document.getElementById(sourceElem).innerText;
+            const response = await fetch('{{ url_for("main.translate") }}', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json; charset=utf-8'},
+                body: JSON.stringify({
+                    text: text,
+                    source_language: sourceLang,
+                    dest_language: destLang
+                })
+            });
+            const data = await response.json();
+            document.getElementById(destElem).innerText = data.text;
+        }catch (err) {
+            document.getElementById(destElem).innerText = "{{ _('Translation failed') }}";
+            console.error(err)
+        }
     }
 </script>
 </body>
