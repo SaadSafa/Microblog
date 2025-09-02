@@ -45,8 +45,11 @@ def create_app(config_class=Config):
 
     if app.elasticsearch:
         index_name = 'post'
-        if not app.elasticsearch.indices.exists(index=index_name):
-            app.elasticsearch.indices.create(index=index_name)
+        try:
+            if not app.elasticsearch.indices.exists(index=index_name):
+                app.elasticsearch.indices.create(index=index_name)
+        except Exception as e:
+            app.logger_warning(f"Elasticsearch index creation failed: {e}")
 
     from app.errors import bp as errors_bp
     app.register_blueprint(errors_bp)
