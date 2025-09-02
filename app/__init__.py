@@ -36,11 +36,18 @@ def create_app(config_class=Config):
     mail.init_app(app)
     moment.init_app(app)
     babel.init_app(app, locale_selector=get_locale)
+
     app.elasticsearch = Elasticsearch(
-    [app.config['ELASTICSEARCH_URL']],
-    http_auth=(app.config['ELASTIC_USER'], app.config['ELASTIC_PASSWORD']),
-    verify_certs=True
+        [app.config['ELASTICSEARCH_URL']],
+        http_auth=(app.config['ELASTIC_USER'], app.config['ELASTIC_PASSWORD']),
+        verify_certs=True
     ) if app.config['ELASTICSEARCH_URL'] else None
+
+    if app.elasticsearch:
+        index_name = 'post'
+        if not app.elasticsearch.indices.exists(index=index_name):
+            app.elasticsearch.indices.create(index=index_name)
+
     from app.errors import bp as errors_bp
     app.register_blueprint(errors_bp)
 
