@@ -9,10 +9,39 @@ env/
 # Python cache files
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
-# Instance folder
+# Byte-compiled / optimized files
+*.py[cod]
+*$py.class
+
+# Instance folder (Flask runtime files)
 instance/
 
-# Optional: IDE/editor files
+# Translations cache
+*.mo
+
+# Docker-related
+*.pid
+*.log
+db-data/
+es-data/
+mysql-data/
+pg-data/
+redis-data/
+
+# Coverage/test reports
+.coverage
+htmlcov/
+*.cover
+
+# IDE/editor files
 .vscode/
 .idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
